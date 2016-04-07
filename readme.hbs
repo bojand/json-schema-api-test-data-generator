@@ -24,9 +24,9 @@ Each `data` element is an object in form:
 
 ```
 {
-  valid:    // boolean: whether the test data is valid against the schema or not
-  data:     // object: the actual data
-  message:  // string: a descriptive message for the test data
+  valid:    // boolean|undefined: whether the test data is valid against the schema or not
+  data:     // object|undefined: the actual data
+  message:  // string: a descriptive message for the test
   property: // string|undefined: if available, the key / property at test
 }
 ```
@@ -147,62 +147,62 @@ Output:
     data:
      [ { valid: true,
          data:
-          { name: 'tempor',
-            email: 'p4cm9umErr-9@XQCBxuDhCwRlZLOAuGXc.cvya' },
+          { name: 'reprehenderit',
+            email: 'XnygcZ9dCu@EfXobwKuQ.kp',
+            active: true },
          message: 'should work with all required properties' },
        { valid: true,
-         data: { name: 'quisconsectetur', email: 'f3TC8jlNF@pWcGik.lhb' },
+         data:
+          { name: 'est aliquip irure',
+            email: '8MgN4rlmKyuP@uGeYYSeCOCnvOqohLoEakIHn.woyg' },
          message: 'should work without optional property: active',
          property: 'active' },
        { valid: true,
-         data:
-          { name: 'amet Excepteur tempor enim',
-            email: '9-e23hfD@kaJMyoBvECJATqDzxZKnrMcByd.bedy' },
+         data: { name: 'sint ipsum amet ad', email: 'ZM4UZZZ0-1@j.ml' },
          message: 'should work without optional property: accountNumber',
          property: 'accountNumber' },
        { valid: false,
-         data:
-          { email: '8CiCSLf2GmyM@xWBrkzydYVUnGIWw.gthj',
-            accountNumber: 50037452.997639775 },
+         data: { email: 'AogZCb@ghacVUptjGaErXDrpJZGwGI.onco' },
          message: 'should not work without required property: name',
          property: 'name' },
        { valid: false,
-         data: { name: 'qui incididunt id exercitation', active: true },
+         data: { name: 'nulla' },
          message: 'should not work without required property: email',
          property: 'email' },
        { valid: false,
          data:
-          { name: null,
-            email: 'n0FI3WIlq@UIwCKATxRNMaldoUgodH.nlqr',
-            accountNumber: 54620025.446638465 },
-         message: 'should not work with \'name\' of type \'null\'',
+          { name: false,
+            email: 'b0P@Enja.bxm',
+            accountNumber: 15629399.986937642 },
+         message: 'should not work with \'name\' of type \'boolean\'',
          property: 'name' },
        { valid: false,
-         data:
-          { name: 'DZX*',
-            email: 'ZWj2Ono8XUfo@FsQOOxnDBtRbNOlyKAQuRlMnBGNTo.lpvo',
-            active: true },
+         data: { name: '[mlP', email: 'g3lTtcZSSDpO@abbIoKuEIxHJqMHmdr.pgjc' },
          message: 'should not pass validation for minLength of property: name',
          property: 'name' },
        { valid: false,
          data:
-          { name: 'Ut in exercitation aliquip',
-            email: 'DC6OmFggK9@QV.zolt',
-            active: 67.47 },
-         message: 'should not work with \'active\' of type \'number\'',
+          { name: 'et quis',
+            email: 'hLmwjGlAtcQZ@eWLXFADlCrgsJrHMtmWdY.hcd',
+            accountNumber: -18683489.50520158,
+            active: 7785059067101184 },
+         message: 'should not work with \'active\' of type \'integer\'',
          property: 'active' },
        { valid: false,
-         data: { name: 'exercitation quis Du', email: true },
-         message: 'should not work with \'email\' of type \'boolean\'',
+         data:
+          { name: 'id sint nostrud',
+            email: 6920340101922816,
+            accountNumber: 15984299.592673779 },
+         message: 'should not work with \'email\' of type \'integer\'',
          property: 'email' },
        { valid: false,
-         data: { name: 'consequat in dolo', email: 'b%eVm' },
+         data: { name: 'proident', email: 'QU9A))%$' },
          message: 'should not pass validation for format of property: email',
          property: 'email' },
        { valid: false,
          data:
-          { name: 'aliquip consectetur enim',
-            email: 'eJrC3BE0BL@HhrKfJvUzCYMSDLHxhUHUjPIXlZCRYIC.qcmo',
+          { name: 'velit fugiat ullamco',
+            email: 'GfSK9nfWEO9Ely@LPnoBWodKFhrXsMNwhfmwdfPANeip.dxtd',
             accountNumber: null },
          message: 'should not work with \'accountNumber\' of type \'null\'',
          property: 'accountNumber' } ] },
@@ -221,7 +221,10 @@ Output:
                 active: { type: 'boolean' },
                 email: { type: 'string', format: 'email' },
                 accountNumber: { type: 'number' } },
-             required: [ 'name', 'email' ] } } } },
+             required: [ 'name', 'email' ] } } },
+    data:
+     [ { message: 'should get empty list of instances if none exist' },
+       { message: 'should get list of instances' } ] },
   { link:
      { description: 'Update an existing user.',
        href: '/users/{email}',
@@ -246,62 +249,66 @@ Output:
           required: [ 'name', 'email' ] } },
     data:
      [ { valid: true,
-         data: { name: 'dolore', email: 'fOSp2AW8oVi@MdIHuSSELgKGXqKSxkh.oam' },
+         data:
+          { name: 'occaecat est do',
+            email: 'uCcC0dBOstha8m@ULFyvvxZZjerJFLSehmxZekah.kqsm',
+            active: true },
          message: 'should work with all required properties' },
        { valid: true,
-         data: { name: 'magna laboris', email: 'hhatghi@OjOTqkVTiYutDON.li' },
+         data: { name: 'id ex dolore sint', email: 'RH6@oXtzq.etx' },
          message: 'should work without optional property: active',
          property: 'active' },
        { valid: true,
          data:
-          { name: 'amet eu mollit officia',
-            email: 'Mh5plowPPLItoX@VQYJGoaWlnfGp.flk' },
+          { name: 'magna id nisi sit',
+            email: 'DJFSw17wkFpxH@RMtnNRzkwOigmJwDbtpoM.xx',
+            active: false },
          message: 'should work without optional property: accountNumber',
          property: 'accountNumber' },
        { valid: false,
-         data: { email: 'LJEp5cSK@zDrxlP.xgv', active: true },
+         data:
+          { email: 'MHRVL-2bZLjtNeH@wdbQZOEWONZFcVmYFuRMouVWtEyxTJwgS.ax',
+            active: true },
          message: 'should not work without required property: name',
          property: 'name' },
        { valid: false,
-         data: { name: 'in ut qui' },
+         data: { name: 'dolore ipsum', accountNumber: -17545116.59964919 },
          message: 'should not work without required property: email',
          property: 'email' },
        { valid: false,
-         data:
-          { name: null,
-            email: 'YloDBNiUn@DkMWhrTtWYFemRAQcgXhkTgQSO.zbp',
-            active: true },
-         message: 'should not work with \'name\' of type \'null\'',
+         data: { name: 4448630052225024, email: 'MhxfauG@nijpNRDgyhcGdgqm.kg' },
+         message: 'should not work with \'name\' of type \'integer\'',
          property: 'name' },
        { valid: false,
          data:
-          { name: 'MqnI',
-            email: 'CbpAJoZDPgJog@zSAlIJlVGzVjJQzXneTjt.wb',
-            accountNumber: -57499667.44333506 },
+          { name: 'i@@]',
+            email: '3lBnpqp-J@hVedOrDPupqov.mqsl',
+            active: true },
          message: 'should not pass validation for minLength of property: name',
          property: 'name' },
        { valid: false,
-         data: { name: 'laborum', email: 'cdX@vxLMfbwEsj.ittj', active: 54.11 },
+         data:
+          { name: 'minim dolor',
+            email: 'PDHcRfuRXTt@cZZrTWzUfbpWHbSkLSMw.fsd',
+            active: 61.03 },
          message: 'should not work with \'active\' of type \'number\'',
          property: 'active' },
        { valid: false,
-         data: { name: 'ex reprehenderit ad culpa', email: true, active: true },
-         message: 'should not work with \'email\' of type \'boolean\'',
+         data: { name: 'estdeserunt', email: 9500069199872, active: true },
+         message: 'should not work with \'email\' of type \'integer\'',
          property: 'email' },
        { valid: false,
          data:
-          { name: 'fugiat ullamco',
-            email: 'gQVC2!n',
-            accountNumber: -96776106.30169511 },
+          { name: 'laborum nulla reprehenderit dolore',
+            email: 'GnfOGqpY)azctsLQsA' },
          message: 'should not pass validation for format of property: email',
          property: 'email' },
        { valid: false,
          data:
-          { name: 'irure culpa nostr',
-            email: 'T2gT02QykqQaZ1s@TcpDyFICrzoAcqaAjtq.srx',
-            active: false,
-            accountNumber: null },
-         message: 'should not work with \'accountNumber\' of type \'null\'',
+          { name: 'tempor',
+            email: 'pvOuONZk@PYaSRxcPPetQPxVdAhYqTN.rbz',
+            accountNumber: -6349397491187712 },
+         message: 'should not work with \'accountNumber\' of type \'integer\'',
          property: 'accountNumber' } ] },
   { link:
      { description: 'Delete an existing user.',
@@ -316,7 +323,10 @@ Output:
              active: { type: 'boolean' },
              email: { type: 'string', format: 'email' },
              accountNumber: { type: 'number' } },
-          required: [ 'name', 'email' ] } } } ]
+          required: [ 'name', 'email' ] } },
+    data:
+     [ { message: 'should delete instance' },
+       { message: 'should get 404 on unknown instance' } ] } ]
 ```
 
 ## API Reference

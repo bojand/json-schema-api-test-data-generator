@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "json-schema-deref": "~0.2.5",
-    "json-schema-faker": "~0.2.15",
     "json-schema-test-data-generator": "~0.1.0",
     "lodash": "~4.7.0",
     "prop-search": "~1.0.0"
