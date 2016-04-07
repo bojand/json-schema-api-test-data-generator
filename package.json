@@ -1,7 +1,7 @@
 {
   "name": "json-schema-api-test-data-generator",
   "description": "Generate sample test data based on JSON Hyper-Schema",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/bojand/json-schema-api-test-data-generator",
   "license": "MIT",
   "repository": {
